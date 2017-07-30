@@ -56,9 +56,12 @@ public class CollectionsDemo {
 		Map<String, String> identityHashMap = new IdentityHashMap<String, String>();
 
 		arrayList.add(1);
-		arrayList.add(2);
 		arrayList.add(3);
+		arrayList.add(2);
 		System.out.println("arrayList 为：");
+		displayAll(arrayList);
+		System.out.println("排序后，arrayList 为：");
+		Collections.sort(arrayList);
 		displayAll(arrayList);
 
 		linkedHashSet.add("set1");
