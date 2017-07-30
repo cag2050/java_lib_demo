@@ -7,7 +7,7 @@ public class ArrayDemo {
 	public static void main(String[] args) {
 		// java声明数组的3种方式：
 		int[] intArray1 = new int[5];
-		int[] intArray2 = new int[] { 1, 3, 2 };
+		int[] intArray2 = new int[] { 1, 2, 3 };
 		int[] intArray3 = { 1, 3, 2 };
 
 		intArray1[0] = 1;
