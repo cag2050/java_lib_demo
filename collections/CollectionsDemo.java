@@ -29,14 +29,14 @@ public class CollectionsDemo {
 	static void displayAll(Collection collection) {
 		Iterator itr = collection.iterator();
 		while (itr.hasNext()) {
-			String str = (String) itr.next();
-			System.out.print(str + " ");
+			Object obj = itr.next();
+			System.out.print(obj + " ");
 		}
 		System.out.println();
 	}
 
 	public static void main(String[] args) {
-		List<String> arrayList = new ArrayList<String>();
+		List<Integer> arrayList = new ArrayList<Integer>();
 		List<String> linkedList = new LinkedList<String>();
 		// Vector与ArrayList的用法几乎完全相同，二者之间的最大区别在于Vector类是线程安全的，而ArrayList不是
 		List<String> vector = new Vector<String>();
@@ -54,9 +54,9 @@ public class CollectionsDemo {
 		Map<String, String> weakHashMap = new WeakHashMap<String, String>();
 		Map<String, String> identityHashMap = new IdentityHashMap<String, String>();
 
-		arrayList.add("list1");
-		arrayList.add("list2");
-		arrayList.add("list3");
+		arrayList.add(1);
+		arrayList.add(2);
+		arrayList.add(3);
 		System.out.println("arrayList 为：");
 		displayAll(arrayList);
 
@@ -78,7 +78,7 @@ public class CollectionsDemo {
 			Map.Entry<String, String> entry = it.next();
 			System.out.println("key= " + entry.getKey() + " value= " + entry.getValue());
 		}
-
+		
 	}
 
 }
