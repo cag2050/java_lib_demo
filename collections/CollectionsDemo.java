@@ -29,8 +29,9 @@ public class CollectionsDemo {
 	static void displayAll(Collection collection) {
 		Iterator itr = collection.iterator();
 		while (itr.hasNext()) {
-			Object obj = itr.next();
-			System.out.print(obj + " ");
+//			注意：当object为null 时，String.valueOf(object)的值是字符串”null”，而不是null
+			String str = String.valueOf(itr.next());
+			System.out.print(str + " ");
 		}
 		System.out.println();
 	}
@@ -61,7 +62,7 @@ public class CollectionsDemo {
 		displayAll(arrayList);
 
 		linkedHashSet.add("set1");
-		linkedHashSet.add("set2");
+		linkedHashSet.add(null);
 		linkedHashSet.add("set3");
 		System.out.println("linkedHashSet 为：");
 		displayAll(linkedHashSet);
