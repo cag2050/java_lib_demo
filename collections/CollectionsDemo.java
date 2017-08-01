@@ -83,6 +83,17 @@ public class CollectionsDemo {
 			System.out.println("key= " + entry.getKey() + " value= " + entry.getValue());
 		}
 		
+//		IdentityHashMap 中的 key 允许重复
+//		IdentityHashMap 使用的是 == 比较 key 的值（比较内存地址），而 HashMap 使用的是 equals()（比较存储值）
+//		IdentityHashMap 使用的是 System.identityHashCode(object) 查找位置，HashMap 使用的是 hashCode() 查找位置
+//		IdentityHashMap 理论上来说速度要比 HashMap 快一点
+		identityHashMap.put("key1", "value1");
+		identityHashMap.put("key1", "value2");
+		identityHashMap.put("key2", "value2");
+		System.out.println(identityHashMap.keySet().size());
+		System.out.println(treeMap.hashCode());
+		System.out.println(System.identityHashCode(identityHashMap));
+		
 	}
 
 }
