@@ -6,7 +6,6 @@ import java.util.concurrent.Executors;
 public class ThreadPoolDemo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// 创建一个可重用固定线程数的线程池
 		ExecutorService pool = Executors.newFixedThreadPool(2);
 		// 创建实现了Runnable接口对象，Thread对象当然也实现了Runnable接口
