@@ -18,7 +18,8 @@ public class AtomicStampedReferenceTest {
 				System.out.printf("%20s : %s\n", "t1 reference", reference);
 				Integer stamp = atomicStampedReference.getStamp();
 				System.out.printf("%20s : %s\n", "t1 stamp", stamp);
-				System.out.println("t1, " + Thread.currentThread().getName() + ", " + atomicStampedReference.getReference() + ", " + atomicStampedReference.getStamp() + ", "
+				System.out.println("t1, " + Thread.currentThread().getName() + ", "
+						+ atomicStampedReference.getReference() + ", " + atomicStampedReference.getStamp() + ", "
 						+ atomicStampedReference.compareAndSet(reference, reference + 2, stamp, stamp + 3));
 			}
 		});
@@ -30,11 +31,13 @@ public class AtomicStampedReferenceTest {
 				System.out.printf("%20s : %s\n", "t2 reference", reference);
 				Integer stamp = atomicStampedReference.getStamp();
 				System.out.printf("%20s : %s\n", "t2 stamp", stamp);
-				System.out.println("t2, " + Thread.currentThread().getName() + ", " + atomicStampedReference.getReference() + ", " + atomicStampedReference.getStamp() + ", "
+				System.out.println("t2, " + Thread.currentThread().getName() + ", "
+						+ atomicStampedReference.getReference() + ", " + atomicStampedReference.getStamp() + ", "
 						+ atomicStampedReference.compareAndSet(reference, reference + 2, stamp, stamp + 3));
 			}
 		});
-
+		// 不管是t1还是t2，先运行到就会通过 compareAndSet 将reference和stamp的值修改，并返回值true
+		// 后运行到的线程，就会读到修改后的值
 		t1.start();
 		t2.start();
 		t1.join();
