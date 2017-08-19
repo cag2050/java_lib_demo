@@ -90,9 +90,9 @@ public class SynchronizedDemo {
 		Customer3 customer = new Customer3(depot);
 
 		producer.produce(1);
-		producer.produce(1);
-		customer.consume(30);
 		producer.produce(10);
+		customer.consume(15);
+		producer.produce(11);
 
 	}
 }
