@@ -4,6 +4,10 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+//通过ReentrantLock和Condition实现完善的生产/消费者模型
+// 通过Condition来解决两个问题：“仓库的容量不可能为负数”以及“仓库的容量是有限制的”。
+// Condition是需要和Lock联合使用的：通过Condition中的await()方法，能让线程阻塞[类似于wait()]；通过Condition的signal()方法，能让唤醒线程[类似于notify()]。
+
 //仓库
 class Depot2 {
 	private int capacity; // 仓库的容量
@@ -111,19 +115,17 @@ class Customer2 {
 	}
 }
 
-public class LockTest2 {
+public class ReentrantLockConditionDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Depot2 depot = new Depot2(10);
 		Producer2 producer = new Producer2(depot);
 		Customer2 customer = new Customer2(depot);
-		
+
 		customer.consume(3);
-		producer.produce(12);
+		producer.produce(1);
 		producer.produce(2);
-		customer.consume(3);
-		customer.consume(15);
-		producer.produce(11);
+		customer.consume(4);
 	}
 }

@@ -3,6 +3,7 @@ package juclock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+// 通过ReentrantLock实现生产/消费者模型
 // 这个模型存在两个问题：
 // (01) 现实中，仓库的容量不可能为负数。但是，此模型中的仓库容量可以为负数，这与现实相矛盾！
 // (02) 现实中，仓库的容量是有限制的。但是，此模型中的容量确实没有限制的！
@@ -75,7 +76,7 @@ class Customer {
 	}
 }
 
-public class LockTest1 {
+public class ReentrantLockDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
