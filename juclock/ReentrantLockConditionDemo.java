@@ -30,9 +30,11 @@ class Depot2 {
 			// 要生产的数量
 			int left = val;
 			while (left > 0) {
+//				仓库的实际数量 大于等于 仓库容量，阻塞
 				while (size >= capacity) {
 					fullCondition.await();
 				}
+//				如果仓库的实际数量加上要生产的数量 大于 仓库容量，此次可生产的数量是 仓库容量减去实际数量；否则，小于等于 仓库容量，可生产数量是要生产的数量
 				int inc = (size + left) > capacity ? capacity - size : left;
 				size += inc;
 				left -= inc;
@@ -55,10 +57,12 @@ class Depot2 {
 			// 要消费的数量
 			int left = val;
 			while (left > 0) {
+//				仓库的实际数量 小于等于 0，阻塞
 				while (size <= 0) {
 					emptyCondition.await();
 				}
-				int dec = (size < left) ? size : left;
+//				如果要消费的数量 大于 仓库的实际数量，此次可消费的数量是 仓库实际数量；否则，小于等于 仓库实际数量，可消费数量是要消费的数量
+				int dec = (left > size) ? size : left;
 				size -= dec;
 				left -= dec;
 				System.out.printf("%s consume (%3d) --> left=%3d dec=%3d size=%d\n", Thread.currentThread().getName(),

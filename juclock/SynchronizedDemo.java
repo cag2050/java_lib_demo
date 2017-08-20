@@ -1,7 +1,7 @@
 package juclock;
 
 class Depot3 {
-	private int size = 0; // 仓库剩余数量
+	private int size = 0; // 仓库的实际数量
 	private int capacity; // 仓库容量
 
 	Depot3(int capacity) {
@@ -12,9 +12,11 @@ class Depot3 {
 		try {
 			int left = val;
 			while (left > 0) {
+//				 仓库的实际数量 大于等于 仓库容量，阻塞
 				while (size >= capacity) {
 					wait();
 				}
+//				如果仓库的实际数量加上要生产的数量 大于 仓库容量，此次可生产的数量是 仓库容量减去实际数量；否则，小于等于 仓库容量，可生产数量是要生产的数量
 				int inc = size + left > capacity ? capacity - size : left;
 				size += inc;
 				left -= inc;
@@ -32,6 +34,7 @@ class Depot3 {
 		try {
 			int left = val;
 			while (left > 0) {
+//				仓库的实际数量 小于等于 0，阻塞
 				while (size <= 0) {
 					wait();
 				}
