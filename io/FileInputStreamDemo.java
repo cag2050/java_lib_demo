@@ -7,14 +7,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FileInputStreamDemo {
-	static String fileName = "file.txt";
+	static String fileName = "byteFile.txt";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		try {
 			// 方法1：
-			File file = new File("file.txt");
+			File file = new File("byteFile.txt");
 			FileInputStream fileInputStream1 = new FileInputStream(file);
 
 			// 方法2：

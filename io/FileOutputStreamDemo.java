@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 public class FileOutputStreamDemo {
-	static String fileName = "file.txt";
+	static String fileName = "byteFile.txt";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
