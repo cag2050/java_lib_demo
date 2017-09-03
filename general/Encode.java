@@ -8,7 +8,7 @@ public class Encode {
 		// TODO Auto-generated method stub
 		System.out.printf("%35s : %s\n", "System.getProperty('file.encoding')", System.getProperty("file.encoding"));
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("1");
+		stringBuilder.append("中");
 		System.out.printf("%35s : %s\n", "stringBuilder initial value", stringBuilder);
 		System.out.printf("%35s : %s\n", "stringBuilder length", stringBuilder.length());
 		try {
