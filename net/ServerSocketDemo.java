@@ -7,11 +7,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-public class SocketServerDemo extends Thread {
+public class ServerSocketDemo extends Thread {
 
 	private ServerSocket serverSocket;
 
-	public SocketServerDemo(int port) throws IOException {
+	public ServerSocketDemo(int port) throws IOException {
 		serverSocket = new ServerSocket(port);
 		serverSocket.setSoTimeout(10000);
 	}
@@ -42,11 +42,11 @@ public class SocketServerDemo extends Thread {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		net目录下，执行：javac -encoding utf-8 SocketServerDemo.java
-//		java_lib_demo目录下，执行：java -Dfile.encoding=utf-8 net.SocketServerDemo 6066
+//		net目录下，执行：javac -encoding utf-8 ServerSocketDemo.java
+//		java_lib_demo目录下，执行：java -Dfile.encoding=utf-8 net.ServerSocketDemo 6066
 		int port = Integer.parseInt(args[0]);
 		try {
-			Thread thread = new SocketServerDemo(port);
+			Thread thread = new ServerSocketDemo(port);
 			thread.run();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

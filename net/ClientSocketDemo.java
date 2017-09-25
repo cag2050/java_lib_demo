@@ -7,9 +7,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class SocketClientDemo {
-//	net目录下，执行：javac -encoding utf-8 SocketClientDemo.java
-//	java_lib_demo目录下，执行：java -Dfile.encoding=utf-8 net.SocketClientDemo 6066
+public class ClientSocketDemo {
+//	net目录下，执行：javac -encoding utf-8 ClientSocketDemo.java
+//	java_lib_demo目录下，执行：java -Dfile.encoding=utf-8 net.ClientSocketDemo localhost 6066
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String serverName = args[0];
