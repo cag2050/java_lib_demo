@@ -19,13 +19,16 @@ public class SocketServerDemo extends Thread {
 	public void run() {
 		while (true) {
 			try {
-				System.out.println("等待远程连接，端口号为：" + serverSocket.getLocalPort());
+				System.out.println("等待客户端连接，端口号为：");
+				System.out.println(serverSocket.getLocalPort());
 				Socket server = serverSocket.accept();
-				System.out.println("远程主机地址：" + server.getRemoteSocketAddress());
+				System.out.println("远程客户端地址：");
+				System.out.println(server.getRemoteSocketAddress());
 				DataInputStream dataInputStream = new DataInputStream(server.getInputStream());
 				System.out.println(dataInputStream.readUTF());
 				DataOutputStream dataOutputStream = new DataOutputStream(server.getOutputStream());
-				dataOutputStream.writeUTF("谢谢连接我：" + server.getLocalSocketAddress());
+				dataOutputStream.writeUTF("谢谢连接我：");
+				System.out.println(server.getLocalSocketAddress());
 				server.close();
 			} catch (SocketTimeoutException e) {
 				System.out.println("Socket timed out!");
@@ -39,7 +42,8 @@ public class SocketServerDemo extends Thread {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		java -Dfile.encoding=utf-8 net.SocketServerDemo 6066
+//		net目录下，执行：javac -encoding utf-8 SocketServerDemo.java
+//		java_lib_demo目录下，执行：java -Dfile.encoding=utf-8 net.SocketServerDemo 6066
 		int port = Integer.parseInt(args[0]);
 		try {
 			Thread thread = new SocketServerDemo(port);
