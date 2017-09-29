@@ -30,7 +30,7 @@ public class TCPEchoClientNonblocking {
 		int bytesReceived;
 		while (totalBytesReceived < argument.length) {
 			if (writeByteBuffer.hasRemaining()) {
-				socketChannel.write(writeByteBuffer)
+				socketChannel.write(writeByteBuffer);
 			}
 			if ((bytesReceived = socketChannel.read(readByteBuffer)) == -1) {
 				throw new SocketException("Connection colsed prematurely");
