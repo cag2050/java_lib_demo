@@ -8,6 +8,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.util.Iterator;
 
 //项目根目录下运行：java nio.TCPServerSelector 2000 2001 2002 2003
+//http://wiki.jikexueyuan.com/project/java-socket/nio.html
 public class TCPServerSelector {
     private static final int BUFSIZE = 256;
     private static final int TIMEOUT = 3000;

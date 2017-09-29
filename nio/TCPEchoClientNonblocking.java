@@ -9,6 +9,7 @@ import java.nio.channels.SocketChannel;
 public class TCPEchoClientNonblocking {
 
 	//项目根目录下运行：java nio.TCPEchoClientNonblocking localhost nihaopengyou 2002
+//	http://wiki.jikexueyuan.com/project/java-socket/nio.html
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		if (args.length < 2 || args.length > 3) {
